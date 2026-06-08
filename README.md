@@ -340,3 +340,16 @@
 ## Full index
 
 See [`sources.json`](sources.json) for every link grouped by domain.
+
+## How it fits
+
+```mermaid
+flowchart LR
+  U[You / CI / Agent] --> R[cognis-sources]
+  R --> O[Outputs & artifacts]
+  R --> M[MCP / JSON]
+  M --> AI[AI agents]
+  R --> S[Cognis Neural Suite]
+```
+
+**Explore the suite →** [🗂️ all tools](https://github.com/cognis-digital/cognis-neural-suite) · [⭐ awesome-cognis](https://github.com/cognis-digital/awesome-cognis) · [🔗 cognis-sources](https://github.com/cognis-digital/cognis-sources)
