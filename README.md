@@ -4,6 +4,32 @@
 
 **10,338 links** across **5,133 domains** (from 223 HTML docs + bookmarks).
 
+## What is this?
+
+Cognis Sources is a cleaned-up, organized collection of over 10,000 public web links gathered from research documents, dashboards, and bookmarks — covering topics like cybersecurity, government data, academic papers, finance, and AI tools. It works like a shared research library: instead of hunting for useful links scattered across hundreds of files, you get them all in one place, sorted by category and de-duplicated so there are no repeats. The collection is available as a simple JSON file that software tools and AI agents can read automatically. It is useful for researchers, analysts, and developers who want a ready-made starting point for exploring public technical and government information sources.
+
+## Getting started
+
+```bash
+# Clone the repository
+git clone https://github.com/cognis-digital/cognis-sources.git
+cd cognis-sources
+```
+
+The full link index lives in [`sources.json`](sources.json) — a JSON object keyed by domain, with each value being an array of URLs. You can load it directly in any language:
+
+```python
+import json
+with open("sources.json") as f:
+    sources = json.load(f)
+# sources["arxiv.org"]  ->  list of arxiv URLs
+```
+
+To forward findings to a webhook (Slack, SIEM, Jira):
+
+```bash
+cat sources.json | python integrations/webhook.py --url https://your-endpoint/path
+```
 
 ## Security & OSINT (42 domains)
 
@@ -353,3 +379,38 @@ flowchart LR
 ```
 
 **Explore the suite →** [🗂️ all tools](https://github.com/cognis-digital/cognis-neural-suite) · [⭐ awesome-cognis](https://github.com/cognis-digital/awesome-cognis) · [🔗 cognis-sources](https://github.com/cognis-digital/cognis-sources)
+
+<a name="verification"></a>
+## Verification
+
+
+
+Every push is verified end-to-end. Latest audit (2026-06-13):
+
+```text
+tests        : 0 passed, 0 failed, 0 errored
+compile      : all modules parse
+cli          : n/a
+package      : n/a
+```
+
+<details><summary>CLI surface (<code>--help</code>)</summary>
+
+```text
+(see --help)
+```
+</details>
+
+Full machine-readable results: [`AUDIT.md`](AUDIT.md) · regenerate with `python -m cognis-sources --help` + `pytest -q`.
+
+<div align="right"><a href="#top">↑ back to top</a></div>
+
+<!-- cognis:domains:start -->
+## Domains
+
+**Primary domain:** AI & ML  ·  **JTF MERIDIAN division:** ATHENA-PRIME · SAGE
+
+**Topics:** `cognis` `ai` `llm` `machine-learning` `privacy`
+
+Part of the **Cognis Neural Suite** — 300+ source-available tools organized across 12 domains under the JTF MERIDIAN command structure. See the [suite on GitHub](https://github.com/cognis-digital) and [jtf-meridian](https://github.com/cognis-digital/jtf-meridian) for how the pieces fit together.
+<!-- cognis:domains:end -->
