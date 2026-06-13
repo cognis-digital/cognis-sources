@@ -4,6 +4,32 @@
 
 **10,338 links** across **5,133 domains** (from 223 HTML docs + bookmarks).
 
+## What is this?
+
+Cognis Sources is a cleaned-up, organized collection of over 10,000 public web links gathered from research documents, dashboards, and bookmarks — covering topics like cybersecurity, government data, academic papers, finance, and AI tools. It works like a shared research library: instead of hunting for useful links scattered across hundreds of files, you get them all in one place, sorted by category and de-duplicated so there are no repeats. The collection is available as a simple JSON file that software tools and AI agents can read automatically. It is useful for researchers, analysts, and developers who want a ready-made starting point for exploring public technical and government information sources.
+
+## Getting started
+
+```bash
+# Clone the repository
+git clone https://github.com/cognis-digital/cognis-sources.git
+cd cognis-sources
+```
+
+The full link index lives in [`sources.json`](sources.json) — a JSON object keyed by domain, with each value being an array of URLs. You can load it directly in any language:
+
+```python
+import json
+with open("sources.json") as f:
+    sources = json.load(f)
+# sources["arxiv.org"]  ->  list of arxiv URLs
+```
+
+To forward findings to a webhook (Slack, SIEM, Jira):
+
+```bash
+cat sources.json | python integrations/webhook.py --url https://your-endpoint/path
+```
 
 ## Security & OSINT (42 domains)
 
