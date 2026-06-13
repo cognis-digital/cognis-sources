@@ -5,6 +5,25 @@
 **10,338 links** across **5,133 domains** (from 223 HTML docs + bookmarks).
 
 
+## Usage — step by step
+
+This repo is a curated link dataset (no CLI) — the index lives in `README.md`, the full machine-readable data in [`sources.json`](sources.json).
+
+1. **Get the data:**
+   ```bash
+   git clone https://github.com/cognis-digital/cognis-sources && cd cognis-sources
+   ```
+2. **Browse by category** in this README (Security & OSINT, Government & Standards, Research & Academia, ...), each grouped by domain with link counts.
+3. **Query the full index** programmatically from `sources.json` — every link grouped by domain:
+   ```bash
+   jq '.[] | select(.domain=="arxiv.org")' sources.json
+   ```
+4. **Filter for your use case** — e.g. pull every `.gov` standards domain into a feed list:
+   ```bash
+   jq -r 'keys[] | select(endswith(".gov"))' sources.json
+   ```
+5. **Feed it to agents / CI** — load `sources.json` as a seed list for a crawler, RAG ingest, or OSINT pipeline. A hard privacy filter already excludes mail/banking/social/health/private hosts, so it is safe to ingest wholesale.
+
 ## Security & OSINT (42 domains)
 
 - **www.bellingcat.com** — 6 link(s)
