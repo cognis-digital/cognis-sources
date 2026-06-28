@@ -5,6 +5,35 @@
 **10,338 links** across **5,133 domains** (from 223 HTML docs + bookmarks).
 
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+  "sources": [
+    {
+      "id": "s1",
+      "name": "Source 1",
+      "type": "article",
+      "url": "https://example.com/article-1",
+      "cited_by": ["c1", "c2"]
+    },
+    {
+      "id": "s2",
+      "name": "Source 2",
+      "type": "book",
+      "url": "https://example.com/book-2",
+      "cited_by": []
+    }
+  ]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 This repo is a curated link dataset (no CLI) — the index lives in `README.md`, the full machine-readable data in [`sources.json`](sources.json).
